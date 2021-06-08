@@ -1,0 +1,20 @@
+{
+  "name": "Cafecito.js",
+  "version": "1.0.0",
+  "description": "Telegram Bot for saving apointments",
+  "main": "app.ts",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "telegraf": "^4.3.0"
+  },
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "keywords": [],
+  "author": "Andres Rodriguez",
+  "license": "MIT"
+}
