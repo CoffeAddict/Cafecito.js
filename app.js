@@ -1,14 +1,18 @@
 require('dotenv').config()
+const DBConnection = require('./dbconnection.js')
 
 const { Telegraf } = require('telegraf')
-const { newCommand } = require('./commands/main-commands.js')
+const { addBirthday } = require('./commands/main-commands.js')
 
-const bot = new Telegraf(process.env.BOT_TOKEN)
+DBConnection.connectToServer((error, client) => {
+    if (error) console.error(error)
 
-bot.start((ctx) => {
-    console.log(ctx)
+    const bot = new Telegraf(process.env.BOT_TOKEN)
+
+    bot.start((ctx) => {
+        console.log(ctx)
+    })
+
+    bot.command('add_bd', addBirthday)
+    bot.launch()
 })
-
-bot.command('custom', newCommand)
-
-bot.launch()
